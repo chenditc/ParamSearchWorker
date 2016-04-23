@@ -137,6 +137,11 @@ LOGGING = {
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
         },
+        'logfile': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': '/opt/python/log/worker.log',
+        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -145,15 +150,15 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'mail_admins'],
+            'handlers': ['console', 'mail_admins', 'logfile'],
             'level': 'INFO',
         },
         'py.warnings': {
-            'handlers': ['console'],
+            'handlers': ['console', 'logfile'],
         },
         'ParamSearch' : {
             'level': 'INFO',
-            'handlers': ['console'],
+            'handlers': ['console', 'logfile'],
         },
     }
 }
