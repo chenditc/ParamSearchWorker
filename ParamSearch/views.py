@@ -13,3 +13,7 @@ def index(request):
 
     # Do stuff
     return HttpResponse(json.dumps("ok"), content_type="application/json")
+
+def health(request):
+    logger.info("Health check")
+    return HttpResponse(json.dumps("ok"), content_type="application/json")
