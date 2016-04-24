@@ -10,6 +10,7 @@ from sklearn import datasets
 from sklearn import svm
 import numpy as np
 from sklearn.svm import SVC
+import time
 
 
 logger = logging.getLogger("ParamSearch")
@@ -25,6 +26,7 @@ def index(request):
     clf = SVC()
     clf.set_params(kernel='linear').fit(X, y)  
     result = clf.predict(X_test)
+    time.sleep(20)
 
     logger.info("result:{0}".format(result))
 
