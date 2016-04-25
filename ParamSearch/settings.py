@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOG_TIMESTAMP = datetime.now().strftime('_%Y_%m_%d_%H_%M.log')
+LOG_TIMESTAMP = datetime.now().strftime('_%Y_%m_%d_%H_%M_%S_%L.log')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
