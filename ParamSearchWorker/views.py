@@ -3,6 +3,8 @@ from django.http import HttpResponse
 
 import json
 import logging
+import time
+
 import sklearn
 
 
@@ -10,13 +12,13 @@ from sklearn import datasets
 from sklearn import svm
 import numpy as np
 from sklearn.svm import SVC
-import time
 
 
-logger = logging.getLogger("ParamSearch")
+logger = logging.getLogger("ParamSearchWorker")
 
-# Create your views here.
-def index(request):
+def search(request):
+    result = ""
+
     logger.info("Request:{0}".format(request.body))
 
     rng = np.random.RandomState(0)
@@ -33,6 +35,3 @@ def index(request):
     # Do stuff
     return HttpResponse(json.dumps(str(result)), content_type="application/json")
 
-def health(request):
-    logger.info("Health check")
-    return HttpResponse(json.dumps("ok"), content_type="application/json")

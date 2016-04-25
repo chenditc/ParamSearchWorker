@@ -3,5 +3,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class ParamsearchConfig(AppConfig):
-    name = 'ParamSearch'
+class HealthConfig(AppConfig):
+    name = 'Health'
