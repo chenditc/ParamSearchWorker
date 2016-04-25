@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from datetime import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -120,6 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOG_TIMESTAMP = datetime.now().strftime('_%Y_%m_%d_%H_%M.log')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -140,12 +142,12 @@ LOGGING = {
         'workerlog': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': '/opt/python/log/worker.log',
+            'filename': '/opt/python/log/worker' + LOG_TIMESTAMP,
         },
         'healthlog': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': '/opt/python/log/health.log',
+            'filename': '/opt/python/log/health' + LOG_TIMESTAMP,
         },
         'mail_admins': {
             'level': 'ERROR',
