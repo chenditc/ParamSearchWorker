@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+import sys, os
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/../depedencies'))
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^paramSearch/', include('ParamSearchWorker.urls')),
